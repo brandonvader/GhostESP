@@ -28,6 +28,8 @@ void touch_driver_init(void)
     gt911_init(GT911_I2C_SLAVE_ADDR);
 #elif defined (CONFIG_LV_TOUCH_CONTROLLER_CST820)
     cst820_init();
+#elif defined (CONFIG_LV_TOUCH_CONTROLLER_ST7123)
+    st7123_init();
 #endif
 
 #ifdef CONFIG_BUILD_CONFIG_TEMPLATE
@@ -61,6 +63,8 @@ bool touch_driver_read(lv_indev_drv_t *drv, lv_indev_data_t *data)
     res = gt911_read(drv, data);
 #elif defined (CONFIG_LV_TOUCH_CONTROLLER_CST820)
     res = cst820_read(drv, data);
+#elif defined (CONFIG_LV_TOUCH_CONTROLLER_ST7123)
+    res = st7123_read(drv, data);
 #endif
 
 #ifdef CONFIG_BUILD_CONFIG_TEMPLATE

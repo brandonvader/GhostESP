@@ -28,6 +28,8 @@ extern "C" {
 #include "st7789.h"
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7796S
 #include "st7796s.h"
+#elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST77922
+#include "st77922.h"
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7735S
 #include "st7735s.h"
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_HX8357

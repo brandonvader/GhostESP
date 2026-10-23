@@ -26,6 +26,8 @@ if(NOT CONFIG_USE_TDISPLAY_S3)
         list(APPEND SOURCES "lvgl_tft/st7735s.c")
     elseif(CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7796S)
         list(APPEND SOURCES "lvgl_tft/st7796s.c")
+    elseif(CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST77922)
+        list(APPEND SOURCES "lvgl_tft/st77922.c")
     elseif(CONFIG_LV_TFT_DISPLAY_CONTROLLER_HX8357)
         list(APPEND SOURCES "lvgl_tft/hx8357.c")
     elseif(CONFIG_LV_TFT_DISPLAY_CONTROLLER_SH1107)
@@ -90,6 +92,8 @@ if(CONFIG_LV_TOUCH_CONTROLLER OR CONFIG_BUILD_CONFIG_TEMPLATE MATCHES "something
         list(APPEND SOURCES "lvgl_touch/gt911.c")
     elseif(CONFIG_LV_TOUCH_CONTROLLER_CST820)
         list(APPEND SOURCES "lvgl_touch/cst820.c")
+    elseif(CONFIG_LV_TOUCH_CONTROLLER_ST7123)
+        list(APPEND SOURCES "lvgl_touch/st7123.c")
     endif()
 
     if(CONFIG_LV_TOUCH_DRIVER_PROTOCOL_SPI)
@@ -104,6 +108,11 @@ endif()
 idf_component_register(SRCS ${SOURCES}
                        INCLUDE_DIRS ${LVGL_INCLUDE_DIRS}
                        REQUIRES lvgl driver esp_lcd io_manager esp_driver_i2c esp_driver_spi esp_driver_ledc)
+
+# Managed component, only present on ESP32-S3 builds; resolved after config is known.
+if(CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST77922)
+    idf_component_optional_requires(PRIVATE espressif__esp_lcd_st77922)
+endif()
 
 target_compile_definitions(${COMPONENT_LIB} PUBLIC "-DLV_LVGL_H_INCLUDE_SIMPLE")
 

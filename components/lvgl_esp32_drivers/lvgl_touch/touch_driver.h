@@ -36,6 +36,8 @@ extern "C" {
 #include "gt911.h"
 #elif defined (CONFIG_LV_TOUCH_CONTROLLER_CST820)
 #include "cst820.h"
+#elif defined (CONFIG_LV_TOUCH_CONTROLLER_ST7123)
+#include "st7123.h"
 #endif
 
 /*********************

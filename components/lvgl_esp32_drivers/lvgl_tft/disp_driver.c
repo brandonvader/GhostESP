@@ -19,6 +19,8 @@ void *disp_driver_init(void)
     st7789_init();
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7796S
     st7796s_init();
+#elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST77922
+    st77922_init();
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7735S
     st7735s_init();
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_HX8357
@@ -94,6 +96,8 @@ void disp_driver_flush(lv_disp_drv_t * drv, const lv_area_t * area, lv_color_t *
     st7789_flush(drv, area, color_map);
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7796S
     st7796s_flush(drv, area, color_map);
+#elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST77922
+    st77922_flush(drv, area, color_map);
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST7735S
     st7735s_flush(drv, area, color_map);
 #elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_HX8357

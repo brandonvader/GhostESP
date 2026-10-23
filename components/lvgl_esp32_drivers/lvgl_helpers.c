@@ -120,6 +120,9 @@ void lvgl_driver_init(void)
         return;
     }
     disp_driver_init();
+#elif defined CONFIG_LV_TFT_DISPLAY_CONTROLLER_ST77922
+    /* QSPI panel: the driver brings up its own SPI bus. */
+    disp_driver_init();
 #elif defined CONFIG_LV_TFT_DISPLAY_PROTOCOL_SPI
     ESP_LOGI(TAG, "Initializing SPI master for display");
     ESP_LOGI(TAG, "Internal DMA RAM free: %d bytes",
