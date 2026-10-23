@@ -77,6 +77,7 @@ GhostESP runs on a variety of ESP32 boards with varying feature support. This co
       <tr><th scope="row">CrowPanel Advanced P4 7/9/10.1″ (v1.2+)</th><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
       <tr><th scope="row">CrowPanel Advanced P4 7/9/10.1″ (v1.1)</th><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr>
       <tr><th scope="row">Sunton 7″</th><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td></tr>
+      <tr><th scope="row">ES3C35P</th><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td><td>✗</td><td>✗</td><td>✓</td><td>✓</td><td>Manual</td><td>✓</td><td>✗</td></tr>
       <tr><th scope="row">Cardputer</th><td>✓</td><td>✗</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td><td>✗</td></tr>
       <tr><th scope="row">Cardputer ADV</th><td>✓</td><td>✗</td><td>✓</td><td>✓</td><td>✗</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td><td>✗</td><td>✗</td></tr>
       <tr><th scope="row">MarauderV4</th><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✓</td><td>✗</td><td>✗</td></tr>
@@ -121,6 +122,8 @@ GhostESP runs on a variety of ESP32 boards with varying feature support. This co
 
 **M5Stack Grove ports:** the M5Stack CoreS3-SE and AtomS3R configs expose their HY2.0-4P Grove connectors on I2C port 1 (`PORT.A`: SDA=G2, SCL=G1; the CoreS3-SE also has `PORT.B` G8/G9 and `PORT.C` G17/G18). Plug an ST25R3916 NFC module (I2C, 0x50) and/or an M5Stack ENV III unit (SHT30 0x44 + QMP6988 0x70) into Grove `PORT.A` and open the NFC or ENV III app - both devices share the same bus.
 
+**ES3C35P (3.5″ 320×480 ESP32-S3):** the display is a Sitronix ST77922 on a QSPI bus with the touch controller built into the panel module, and the board has 8 MB of octal PSRAM, which the native SD app loader needs. The SD slot is wired for 4-bit SDIO but the release build runs it in 1-bit mode. The panel's reset line is tied to the chip's enable pin, so a USB or software reset does not reset it: **after flashing over other firmware, unplug the board and plug it back in once**, otherwise the screen can stay black. Native SD apps that declare `joystick` in `requires_features` appear in the app list but do not launch on this touch-only board.
+
 **Additional feature availability:** some features are not represented in the table above.
 
 - **Ethernet** (`CONFIG_WITH_ETHERNET`) is enabled only on **Banshee S3**.
@@ -161,6 +164,7 @@ The following table lists the vendor-specific boards supported by GhostESP with 
 | Crowtech 7″ | ESP32-S3 | `Crowtech_LCD.zip` | |
 | Sunton 7″ | ESP32-S3 | `Sunton_LCD.zip` | |
 | JC3248W535EN | ESP32-S3 | `JC3248W535EN_LCD.zip` | |
+| LCDwiki ES3C35P (3.5″, also sold as Hosyond 3.5″ ESP32-S3) | ESP32-S3 | `ES3C35P.zip` | |
 | Cardputer | ESP32-S3 | `ESP32-S3-Cardputer.zip` | <img src="../images/m5_cardputer.jpg" alt="M5 Stack Cardputer"> |
 | Cardputer ADV | ESP32-S3 | `CardputerADV.zip` | |
 | M5Stack CoreS3-SE | ESP32-S3 | `M5Stack_CoreS3-SE.zip` | |

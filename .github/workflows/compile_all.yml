@@ -70,6 +70,7 @@ jobs:
           - { name: "CrowPanel Advance 2.4-inch", idf_target: "esp32s3", sdkconfig_file: "configs/sdkconfig.crowpanel_advance24",            zip_name: "CrowPanel_Advance_24.zip", ota: true, board_key: "crowpanel_advance24" }
           - { name: "Sunton_LCD",              idf_target: "esp32s3", sdkconfig_file: "configs/sdkconfig.sunton7inch",                     zip_name: "Sunton_LCD.zip", ota: true, board_key: "sunton7inch" }
           - { name: "JC3248W535EN_LCD",        idf_target: "esp32s3", sdkconfig_file: "configs/sdkconfig.JC3248W535EN",                    zip_name: "JC3248W535EN_LCD.zip", ota: true, board_key: "JC3248W535EN" }
+          - { name: "ES3C35P",                 idf_target: "esp32s3", sdkconfig_file: "configs/sdkconfig.ES3C35P",                         zip_name: "ES3C35P.zip" }
           - { name: "Flipper_JCMK_GPS",        idf_target: "esp32s2", sdkconfig_file: "configs/sdkconfig.flipper.jcmk_gps",               zip_name: "Flipper_JCMK_GPS.zip" }
           - { name: "T-Deck",                  idf_target: "esp32s3", sdkconfig_file: "configs/sdkconfig.tdeck",                           zip_name: "LilyGo-T-Deck.zip" }
           - { name: "TEmbedC1101",             idf_target: "esp32s3", sdkconfig_file: "configs/sdkconfig.TEmbedC1101",                     zip_name: "LilyGo-TEmbedC1101.zip", ota: true, board_key: "LilyGo TEmbedC1101" }
